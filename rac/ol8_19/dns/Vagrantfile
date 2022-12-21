@@ -83,3 +83,15 @@ Vagrant.configure("2") do |config|
     sh /vagrant/scripts/setup.sh
   SHELL
 end
+
+#WP
+Vagrant.configure("2") do |config|
+  config.vm.provision "shell", inline: <<-SHELL
+    sh /vagrant_software/01_packages.sh
+  SHELL
+
+  config.vbguest.auto_update = false
+  #config.vm.synced_folder "d:/vgprovision/", "/vagrant/software"
+  config.vm.synced_folder "d:/vgprovision/", "/vagrant_software"
+  config.vm.synced_folder "d:/vhome/", "/media/sf_vhome"
+end

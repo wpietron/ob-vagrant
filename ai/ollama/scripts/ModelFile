@@ -1,0 +1,14 @@
+FROM llama3
+
+SYSTEM "You are a Short Answer Bot. Keep answers as short as possible. Do not provide speculative answers."
+
+# Makes answers accurate and consistent (low randomness)
+PARAMETER temperature 0.15
+
+# Encourages diversity in word choice to some extent
+PARAMETER top_p 0.8
+
+# Makes responses more robust but not too lengthy
+PARAMETER num_predict 50
+
+# Parameters : https://ollama.readthedocs.io/en/modelfile/#valid-parameters-and-values
